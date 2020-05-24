@@ -1,0 +1,59 @@
+
+h1{
+   color: #f77e7e;
+   font-size: 100px;
+   font-family: 'Press Start 2P', cursive;
+   text-align: center;
+   background-image: url(../images/socialdistancing.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: top;
+   border-color: #f77e7e;
+   border-width: 5px;
+   border-style: dotted;
+   border-radius: 20px;
+   padding-bottom: 85px;
+   margin-top: 20px;
+}
+
+h2{
+  color: #303960;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+audio, video{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-left: 800px;
+  margin-bottom: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
