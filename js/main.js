@@ -62,8 +62,8 @@ function filter() {
         "grayscale(1)", "hue-rotate(270deg)", "invert(100%)", "opacity(50%)",
         "saturate(80%)", "sepia(1)"]
   let filteridx = Math.floor(Math.random() * filter_list.length)
-  document.getElementById("video_id").style.filter = filter_list[filteridx]
+  document.getElementById("showVideo").style.filter = filter_list[filteridx]
 }
 
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError)
-document.querySelector('#showVideo').addEventListener('click', e => init(e))
+// document.querySelector('#showVideo').addEventListener('click', e => init(e))
