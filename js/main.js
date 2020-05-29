@@ -5,18 +5,20 @@
 
 
 
-/************* SPEECH SECTION *************/ 
+/************* SPEECH SECTION *************/
 
 // fun speech times -> experimenting like we're in hs science fair
-var keyword = ['I', 'me', 'myself'] // can be added to
+var keyword = ['blue', 'green', 'yellow','pink','black','coral'] // can be added to
 var grammar = '#JSGF V1.0; grammar keyword; public <keyword> = ' + keyword.join(' | ') + ' ;'
 var count = 0;
 var containsKey = false;
+
 
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
+//var grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
@@ -27,7 +29,10 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 console.log('Is this at all working???');
 recognition.start();
-
+console.log('ah hi!')
+var diagnostic = document.querySelector('.output');
+var bg = document.querySelector('html');
+var height = document.getElementById("showVideo").height;
 recognition.onresult = function(event) {
   var result = event.results[count][0].transcript;
   console.log('Received: ' + result + '.' );
@@ -43,6 +48,12 @@ recognition.onresult = function(event) {
   result.split(' ', '.');
   containsKey = hasKey(keyword, result);
   console.log('Contains a keyword? ' + containsKey);
+  if (containsKey){
+    bg.style.backgroundColor = result;
+  }
+  document.getElementById("heading").textContent = result;
+  console.log( "blur(" + (100 - Math.round(event.results[count-1][0].confidence*100)) + "px)");
+  document.getElementById("showVideo").style.filter = "blur(" + (100 - Math.round(event.results[count-1][0].confidence*100)) + "px)";
 }
 
 recognition.onspeechend = function() {
@@ -61,7 +72,7 @@ function hasKey(arr, arr2) {
 
 
 
-/************* WEB AND VIDEO SECTION *************/ 
+/************* WEB AND VIDEO SECTION *************/
 
 // Put variables in global scope to make them available to the browser console.
 //const audio = document.querySelector('audio')
@@ -74,7 +85,7 @@ const constraints = window.constraints = {
 function handleSuccess(stream) {
   //const audioTracks = stream.getAudioTracks()
   const videoTracks = stream.getVideoTracks()
-  
+
   console.log('Got stream with constraints:', constraints)
   //console.log('Using audio device: ' + audioTracks[0].label)
   console.log(`Using video device: ${videoTracks[0].label}`)
@@ -97,7 +108,7 @@ function errorMsg(msg, error) {
 function handleError(error) {
   const errorMessage = 'navigator.MediaDevices.getUserMedia error: ' + error.message + ' ' + error.name
   errorMsg(`getUserMedia error: ${error.name}`, error)
-  errorMsgElement.innerHTML = errorMessage 
+  errorMsgElement.innerHTML = errorMessage
   console.log(errorMessage)
   if (error.name === 'ConstraintNotSatisfiedError') {
     const v = constraints.video
@@ -129,5 +140,3 @@ function filter() {
 
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError)
 // document.querySelector('#showVideo').addEventListener('click', e => init(e))
-
-
