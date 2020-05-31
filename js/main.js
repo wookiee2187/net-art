@@ -4,6 +4,27 @@
 'use strict'
 
 
+/************* TIMER SECTION *************/
+function timerTime(duration) {
+
+  var minTimer = duration;
+  
+  setInterval(function () {
+      var visualTimer = document.getElementById('timer')
+      visualTimer.classList.add("width-change");
+
+      if (--minTimer < 0) {
+          visualTimer.classList.remove("width-change");
+          minTimer = duration
+      }
+
+  }, 1000);
+}
+
+window.onload = function () {
+  var length = 30 * 1;
+  timerTime(length);
+};
 
 /************* SPEECH SECTION *************/
 

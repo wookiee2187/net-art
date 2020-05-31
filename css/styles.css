@@ -57,3 +57,23 @@ a:hover {
 .round {
   border-radius: 50%;
 }
+
+#timer {
+  background-color: #004d00;
+  height: 50px;
+  width: 90vw;
+  margin: 0 4vw;
+}
+
+.width-change {
+  animation-name: widthChange;
+  animation-duration: 30s;
+}
+
+@keyframes widthChange {
+  0%   {width: 90vw;}
+  /* 25%  {width: 67.5vw;}
+  50%  {width: 45vw;}
+  75%  {width: 22.5vw;} */
+  100% {width: 0vw;}
+}
