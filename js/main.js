@@ -8,7 +8,7 @@
 function timerTime(duration) {
 
   var minTimer = duration;
-  
+
   setInterval(function () {
       var visualTimer = document.getElementById('timer')
       visualTimer.classList.add("width-change");
@@ -97,57 +97,181 @@ function hasKey(arr, arr2) {
 
 // Put variables in global scope to make them available to the browser console.
 //const audio = document.querySelector('audio')
+let mediaRecorder
+let recordedBlobs
+
 const video = document.querySelector('video')
+const recordedVideo = document.querySelector('video#recorded')
+const recordButton = document.querySelector('button#record')
 const constraints = window.constraints = {
   //audio: true,
   video: true
 }
 
+recordButton.addEventListener('click', () => {
+  if (recordButton.textContent === 'Start Recording') {
+    startRecording()
+  } else {
+    stopRecording()
+    recordButton.textContent = 'Start Recording'
+    playButton.disabled = false
+    downloadButton.disabled = false
+  }
+})
+
+const playButton = document.querySelector('button#play')
+playButton.addEventListener('click', () => {
+  const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'})
+  recordedVideo.src = null
+  recordedVideo.srcObject = null
+  recordedVideo.src = window.URL.createObjectURL(superBuffer)
+  recordedVideo.controls = true
+  recordedVideo.play()
+})
+
+const downloadButton = document.querySelector('button#download')
+downloadButton.addEventListener('click', () => {
+  const blob = new Blob(recordedBlobs, {type: 'video/webm'})
+  const url = window.URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.style.display = 'none'
+  a.href = url
+  a.download = 'test.webm'
+  document.body.appendChild(a)
+  a.click()
+  setTimeout(() => {
+    document.body.removeChild(a)
+    window.URL.revokeObjectURL(url)
+  }, 100)
+})
+
+function handleDataAvailable(event) {
+  console.log('handleDataAvailable', event)
+  if (event.data && event.data.size > 0) {
+    recordedBlobs.push(event.data)
+  }
+}
+
+function startRecording() {
+  recordedBlobs = []
+  let options = {mimeType: 'video/webm;codecs=vp9,opus'}
+  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+    console.error(`${options.mimeType} is not supported`)
+    options = {mimeType: 'video/webm;codecs=vp8,opus'}
+    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      console.error(`${options.mimeType} is not supported`)
+      options = {mimeType: 'video/webm'}
+      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+        console.error(`${options.mimeType} is not supported`)
+        options = {mimeType: ''}
+      }
+    }
+  }
+
+  try {
+    mediaRecorder = new MediaRecorder(window.stream, options)
+  } catch (e) {
+    console.error('Exception while creating MediaRecorder:', e)
+    errorMsgElement.innerHTML = `Exception while creating MediaRecorder: ${JSON.stringify(e)}`
+    return
+  }
+
+  console.log('Created MediaRecorder', mediaRecorder, 'with options', options)
+  recordButton.textContent = 'Stop Recording'
+  playButton.disabled = true
+  downloadButton.disabled = true
+  mediaRecorder.onstop = (event) => {
+    console.log('Recorder stopped: ', event)
+    console.log('Recorded Blobs: ', recordedBlobs)
+  }
+  mediaRecorder.ondataavailable = handleDataAvailable
+  mediaRecorder.start()
+  console.log('MediaRecorder started', mediaRecorder)
+}
+
+function stopRecording() {
+  mediaRecorder.stop()
+}
+
 function handleSuccess(stream) {
-  //const audioTracks = stream.getAudioTracks()
-  const videoTracks = stream.getVideoTracks()
+  recordButton.disabled = false
+  console.log('getUserMedia() got stream:', stream)
+  window.stream = stream
 
-  console.log('Got stream with constraints:', constraints)
-  //console.log('Using audio device: ' + audioTracks[0].label)
-  console.log(`Using video device: ${videoTracks[0].label}`)
-  stream.oninactive = function() {
-    console.log('Stream ended')
-  }
-  window.stream = stream // make variable available to browser console
-  //audio.srcObject = stream
-  video.srcObject = stream
+  const showVVideo = document.querySelector('video#showVideo')
+  showVVideo.srcObject = stream
 }
 
-function errorMsg(msg, error) {
-  const errorElement = document.querySelector('#errorMsg')
-  errorElement.innerHTML += `<p>${msg}</p>`
-  if (typeof error !== 'undefined') {
-    console.error(error)
-  }
-}
+// async function init(constraints) {
+//   try {
+//     const stream = await navigator.mediaDevices.getUserMedia(constraints)
+//     handleSuccess(stream)
+//   } catch (e) {
+//     console.error('navigator.getUserMedia error:', e)
+    // errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`
+//   }
+// }
 
-function handleError(error) {
-  const errorMessage = 'navigator.MediaDevices.getUserMedia error: ' + error.message + ' ' + error.name
-  errorMsg(`getUserMedia error: ${error.name}`, error)
-  errorMsgElement.innerHTML = errorMessage
-  console.log(errorMessage)
-  if (error.name === 'ConstraintNotSatisfiedError') {
-    const v = constraints.video
-    errorMsg(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`)
-  } else if (error.name === 'PermissionDeniedError') {
-    errorMsg('Permissions have not been granted to use your camera and ' +
-      'microphone, you need to allow the page access to your devices in ' +
-      'order for the demo to work.')
-  }
-}
+// document.querySelector('button#start').addEventListener('click', async () => {
+//   const hasEchoCancellation = document.querySelector('#echoCancellation').checked
+//   const constraints = {
+//     audio: {
+//       echoCancellation: {exact: hasEchoCancellation}
+//     },
+//     video: {
+//       width: 1280, height: 720
+//     }
+//   }
+//   console.log('Using media constraints:', constraints)
+//   await init(constraints)
+// })
+
+// function handleSuccess(stream) {
+//   //const audioTracks = stream.getAudioTracks()
+//   const videoTracks = stream.getVideoTracks()
+//
+//   console.log('Got stream with constraints:', constraints)
+//   //console.log('Using audio device: ' + audioTracks[0].label)
+//   console.log(`Using video device: ${videoTracks[0].label}`)
+//   stream.oninactive = function() {
+//     console.log('Stream ended')
+//   }
+//   window.stream = stream // make variable available to browser console
+//   //audio.srcObject = stream
+//   video.srcObject = stream
+// }
+//
+// function errorMsg(msg, error) {
+//   const errorElement = document.querySelector('#errorMsg')
+//   errorElement.innerHTML += `<p>${msg}</p>`
+//   if (typeof error !== 'undefined') {
+//     console.error(error)
+//   }
+// }
+
+// function handleError(error) {
+//   const errorMessage = 'navigator.MediaDevices.getUserMedia error: ' + error.message + ' ' + error.name
+//   errorMsg(`getUserMedia error: ${error.name}`, error)
+//   errorMsgElement.innerHTML = errorMessage
+//   console.log(errorMessage)
+//   if (error.name === 'ConstraintNotSatisfiedError') {
+//     const v = constraints.video
+//     errorMsg(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`)
+//   } else if (error.name === 'PermissionDeniedError') {
+//     errorMsg('Permissions have not been granted to use your camera and ' +
+//       'microphone, you need to allow the page access to your devices in ' +
+//       'order for the demo to work.')
+//   }
+// }
 
 async function init(e) {
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-    e.target.disabled = true;
+    handleSuccess(stream)
+    // e.target.disabled = true
   } catch (e) {
-    handleError(e)
+    console.error('navigator.getUserMedia error:', e)
+    // handleError(e)
   }
 }
 
@@ -159,5 +283,19 @@ function filter() {
   document.getElementById("showVideo").style.filter = filter_list[filteridx]
 }
 
-navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError)
+// navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError)
+document.querySelector('button#start').addEventListener('click', async () => {
+  // const hasEchoCancellation = document.querySelector('#echoCancellation').checked
+  const constraints = {
+    // audio: {
+    //   echoCancellation: {exact: hasEchoCancellation}
+    // },
+    video: {
+      width: 1280, height: 720
+    }
+  }
+  console.log('Using media constraints:', constraints)
+  await init(constraints)
+})
+// navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError)
 // document.querySelector('#showVideo').addEventListener('click', e => init(e))
