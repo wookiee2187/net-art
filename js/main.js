@@ -211,6 +211,7 @@ function handleSuccess(stream) {
     // errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`
 //   }
 // }
+//
 
 // document.querySelector('button#start').addEventListener('click', async () => {
 //   const hasEchoCancellation = document.querySelector('#echoCancellation').checked
