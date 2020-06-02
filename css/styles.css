@@ -30,6 +30,18 @@ audio, video{
   margin: auto;
 }
 
+button {
+  padding: 8px;
+  margin: 1px 1px 1px 50px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  background-color: #f77e7e;
+  color: black;
+  border-radius: 70px;
+  border-color: white;
+  color: white;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
