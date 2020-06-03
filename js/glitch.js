@@ -2,7 +2,7 @@ var t = 0;
 var glitch = 0
 var x = Math.random() * 5000;
 
-document.addEventListener('keypress', function glitch(){
+start.addEventListener('click', function glitch(){
     var v = document.getElementById('showVideo');
     var canvas = document.getElementById('c1');
     var context = canvas.getContext('2d');
@@ -11,8 +11,7 @@ document.addEventListener('keypress', function glitch(){
     console.log("successfully init");
 
     var cw,ch;
-
-    glitchButton.addEventListener('click', function(){
+    
         cw = v.clientWidth;
         ch = v.clientHeight;
         canvas.width = cw;
@@ -20,8 +19,6 @@ document.addEventListener('keypress', function glitch(){
         back.width = cw;
         back.height = ch;
         draw(v,context,backcontext,cw,ch);
-    },false);
-
 },false);
 
 function draw(v,c1,bc,cw,ch) {

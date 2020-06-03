@@ -225,3 +225,22 @@ document.querySelector('button#start').addEventListener('click', async () => {
   console.log('Using media constraints:', constraints)
   await init(constraints)
 })
+
+/********INTERACTION UX SECION************/
+
+function buttonStart() {
+  start.style.display = "none";
+  if(record.style.display == "none"){
+    record.style.display = "inline";
+  }
+
+  record.addEventListener('click', function(){
+    if(play.style.display == "none"){
+      play.style.display = "inline";
+    }
+    if(download.style.display == "none"){
+      download.style.display = "inline";
+    }
+  }, false)
+  
+}

@@ -1,26 +1,58 @@
 
+body{
+  background-color: #474747;
+  text-align: center;
+  margin: auto;
+}
+
 h1{
-   color: #f77e7e;
+   color: #CC527A;
    font-size: 100px;
-   font-family: 'Press Start 2P', cursive;
+   font-family: 'Courier New', Courier, monospace;
    text-align: center;
-   background-image: url(../images/socialdistancing.jpg);
-   background-repeat: no-repeat;
+   /* background-image: url(../images/socialdistancing.jpg);
+   background-repeat: no-repeat; */
    background-size: cover;
    background-position: top;
-   border-color: #f77e7e;
-   border-width: 5px;
-   border-style: dotted;
-   border-radius: 20px;
-   padding-bottom: 85px;
-   margin-top: 20px;
+   /* border-color: #f77e7e; */
+   /* border-width: 5px; */
+   /* border-style: dotted; */
+   /* border-radius: 20px; */
+   /* padding-bottom: 20px; */
+   margin: 25px;
 }
 
 h2{
-  color: #303960;
-  font-size: 20px;
-  font-family: 'Press Start 2P', cursive;
-  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.warning{
+  color: #E8175D;
+  font-size: 30px;
+}
+
+.typewriter h2{
+  
+  overflow: hidden;
+  border-right: .15em solid #E8175D;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .10em;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing{
+  from {width: 0}
+  to {width: 100%}
+}
+
+@keyframes blink-caret{
+  from, to {border-color: transparent}
+  50% {border-color: #E8175D;}
 }
 
 video {
@@ -29,17 +61,30 @@ video {
   width: 33.33%;
 }
 
+#videos {
+  text-align: center;
+}
+
+#buttonBlock {
+  padding: 20px;
+}
+
 button {
-  padding: 8px;
-  margin: 1px 1px 1px 50px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
-  background-color: #f77e7e;
-  color: black;
-  border-radius: 70px;
-  border-color: white;
+  padding: 10px;
+  margin: 0px 25px 0px 25px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  background-color: #CC527A;
+  border: none;
+  /* border-radius: 70px;
+  border-color: white; */
   color: white;
 }
+
+button:hover {
+  background-color: #E8175D;
+}
+
 
 a {
   text-decoration: none;
@@ -47,7 +92,7 @@ a {
   padding: 8px 16px;
   margin-left: 800px;
   margin-bottom: 20px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 a:hover {
@@ -70,8 +115,8 @@ a:hover {
 }
 
 #timer {
-  background-color: #004d00;
-  height: 50px;
+  background-color: #CC527A;
+  height: 30px;
   width: 90vw;
   margin: 0 4vw;
 }
