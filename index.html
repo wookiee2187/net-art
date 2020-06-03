@@ -10,7 +10,7 @@
     <meta name="og:description" content="experimenting with video stuff">
     <meta name="og:site_name" content="NetArt">
     <meta name="og:url" content=" https://wookiee2187.github.io/net-art/">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png"  href="images/icon.png">
@@ -18,11 +18,21 @@
   <body>
     <h1> 2MORO </h1>
     <h2> ? top 3 things on ur BL after COVID </h2>
-    <audio controls autoplay></audio>
+    <div id="timer"></div>
     <a href="#" class="next round" onclick="filter()">filter &#8250;</a>
     <button id="glitchButton">glitch</button>
     <canvas id="c1"></canvas>
     <video id="showVideo" autoplay playsinline></video>
+    <video id="recorded" playsinline loop></video>
+    <div>
+        <button id="start">Start camera</button>
+        <button id="record" disabled>Start Recording</button>
+        <button id="play" disabled>Play</button>
+        <button id="download" disabled>Download</button>
+    </div>
+    <div>
+        <p id="echoCancellation"></p>
+    </div>
     <h1 id="heading"> </h1>
     <script src="js/main.js"></script>
     <script src="js/glitch.js"></script>
