@@ -1,4 +1,8 @@
-document.addEventListener('keypress', function(){
+var t = 0;
+var glitch = 0
+var x = Math.random() * 5000;
+
+document.addEventListener('keypress', function glitch(){
     var v = document.getElementById('showVideo');
     var canvas = document.getElementById('c1');
     var context = canvas.getContext('2d');
@@ -21,7 +25,6 @@ document.addEventListener('keypress', function(){
 },false);
 
 function draw(v,c1,bc,cw,ch) {
-    console.log("drawing");
     // First, draw it into the backing canvas
     bc.drawImage(v,0,0,cw,ch);
     // Grab the pixel data from the backing canvas
@@ -31,11 +34,21 @@ function draw(v,c1,bc,cw,ch) {
     var limit = data.length
     // Loop through the subpixels, convoluting each using an edge-detection matrix.
     for(var i = 0; i < limit; i++) {
-        if( i%4 == 3 ) continue;
-        data[i] = 127 + 2*data[i] - data[i + 4] - data[i + w*4];
+        if(i%4 == 3 ) continue;
+        if((x * x/t)%30 < 3){
+        data[i] = 120 + 3*data[i] - data[i + 2] - data[i + w*3];
+        }
+        if(t%5 < 1){
+            data[i] = 5*data[i] - data[i + 4] - data[i + w*3];
+        }
+        if(t%50 < 3){
+            data[i] = data[i] - data[i + 4];
+        }
+
     }
-    // Draw the pixels onto the visible canvas
     c1.putImageData(idata,0,0);
     // Start over!
+    t++;
     setTimeout(draw,20,v,c1,bc,cw,ch);
-}
+    };
+
