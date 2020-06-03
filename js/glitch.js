@@ -35,14 +35,18 @@ function draw(v,c1,bc,cw,ch) {
     // Loop through the subpixels, convoluting each using an edge-detection matrix.
     for(var i = 0; i < limit; i++) {
         if(i%4 == 3 ) continue;
-        if((x * x/t)%30 < 3){
+
+        if(x%30 < 10){
         data[i] = 120 + 3*data[i] - data[i + 2] - data[i + w*3];
         }
-        if(t%5 < 1){
+        if(t%40 < 1){
             data[i] = 5*data[i] - data[i + 4] - data[i + w*3];
         }
-        if(t%50 < 3){
+        if(t%30 < 3){
             data[i] = data[i] - data[i + 4];
+        }
+        if(t%13 < 1){
+            data[i] = data[i - 4] - 1;
         }
 
     }
