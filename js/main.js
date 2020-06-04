@@ -50,7 +50,7 @@ function timer() {
 /************* SPEECH SECTION *************/
 
 // fun speech times -> experimenting like we're in hs science fair
-var keyword = ['blue', 'green', 'yellow','pink','black','coral'] // can be added to
+var keyword = ['blue', 'green', 'yellow','pink','black','coral','orange','brown','white','red','silver','gold','beige'] // can be added to
 var grammar = '#JSGF V1.0; grammar keyword; public <keyword> = ' + keyword.join(' | ') + ' ;'
 var count = 0;
 var containsKey = false;
@@ -91,9 +91,10 @@ recognition.onresult = function(event) {
   containsKey = hasKey(keyword, result);
   console.log('Contains a keyword? ' + containsKey);
   if (containsKey){
-    bg.style.backgroundColor = result;
+    document.getElementById("header").style.backgroundColor = result;
+    document.body.style.backgroundColor = result;
   }
-  document.getElementById("heading").textContent = result;
+  document.getElementById("heading").textContent = result + "?";
   console.log( "blur(" + (100 - Math.round(event.results[count-1][0].confidence*100)) + "px)");
   document.getElementById("showVideo").style.filter = "blur(" + (100 - Math.round(event.results[count-1][0].confidence*100)) + "px)";
 }
