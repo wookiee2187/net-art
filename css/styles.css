@@ -50,14 +50,14 @@ h2 {
 
 p {
   color: white;
-  font-size: 15px;
+  font-size: 30px;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
 }
 
 .warning{
   /* color: #E8175D; */
-  font-size: 20px;
+  font-size: 35px;
   animation-name: flash;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
