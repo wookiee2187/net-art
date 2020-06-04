@@ -16,19 +16,25 @@
     <link rel="icon" type="image/png"  href="images/icon.png">
   </head>
   <body>
-    <h1> 2MORO </h1>
-    <h2> ? top 3 things on ur BL after COVID </h2>
+    <div class="header">
+      <h1> 2MORO </h1>
+      <h2 class="warning">WARNING: flashing images</h2>
+      <!-- <p>You will be recorded.</p> -->
+    </div>
+    <!-- <div class="typewriter"> -->
     <div id="timer"></div>
-    <a href="#" class="next round" onclick="filter()">filter &#8250;</a>
-    <button id="glitchButton">glitch</button>
-    <canvas id="c1"></canvas>
-    <video id="showVideo" autoplay playsinline></video>
-    <video id="recorded" playsinline loop></video>
-    <div>
-        <button id="start">Start camera</button>
-        <button id="record" disabled>Start Recording</button>
-        <button id="play" disabled>Play</button>
-        <button id="download" disabled>Download</button>
+    <!-- <a href="#" class="next round" onclick="filter()">filter &#8250;</a> -->
+    <div id = "buttonBlock">
+      <p>You will be recorded.</p>
+      <button id="start" onclick="buttonStart()">I Accept</button>
+      <button id="record" style="display: none" disabled>Start Recording</button>
+      <button id="play" style="display: none" disabled>Play</button>
+      <button id="download" style="display: none" disabled>Download</button>
+    </div>
+    <div id="videos">
+      <canvas id="c1"></canvas>
+      <video id="showVideo" autoplay playsinline></video>
+      <video id="recorded" playsinline loop></video>
     </div>
     <div>
         <p id="echoCancellation"></p>
@@ -37,5 +43,8 @@
     <script src="js/main.js"></script>
     <script src="js/glitch.js"></script>
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <div class="footer">
+      <p>Authors: Catie Medvid, Cherry Ying, Hailey Qu, Neha Lingareddy</p>
+    </div>
   </body>
 </html>

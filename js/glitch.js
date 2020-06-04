@@ -1,8 +1,7 @@
 var t = 0;
 var glitch = 0
-var x = Math.random() * 5000;
 
-document.addEventListener('keypress', function glitch(){
+start.addEventListener('click', function glitch(){
     var v = document.getElementById('showVideo');
     var canvas = document.getElementById('c1');
     var context = canvas.getContext('2d');
@@ -12,19 +11,19 @@ document.addEventListener('keypress', function glitch(){
 
     var cw,ch;
 
-    glitchButton.addEventListener('click', function(){
-        cw = v.clientWidth;
-        ch = v.clientHeight;
+        // cw = v.clientWidth;
+        // ch = v.clientHeight;
+        cw = 1280;
+        ch = 720;
         canvas.width = cw;
         canvas.height = ch;
         back.width = cw;
         back.height = ch;
         draw(v,context,backcontext,cw,ch);
-    },false);
-
 },false);
 
 function draw(v,c1,bc,cw,ch) {
+    var x = Math.random() * 5000;
     // First, draw it into the backing canvas
     bc.drawImage(v,0,0,cw,ch);
     // Grab the pixel data from the backing canvas
@@ -40,13 +39,13 @@ function draw(v,c1,bc,cw,ch) {
         data[i] = 120 + 3*data[i] - data[i + 2] - data[i + w*3];
         }
         if(t%40 < 1){
-            data[i] = 5*data[i] - data[i + 4] - data[i + w*3];
+            data[i] = 5*data[i] - data[i + 13] - data[i + w*3];
         }
         if(t%30 < 3){
             data[i] = data[i] - data[i + 4];
         }
-        if(t%13 < 1){
-            data[i] = data[i - 4] - 1;
+        if(x%13 < 1){
+            data[i] = data[i - 4] - .5;
         }
 
     }
@@ -55,4 +54,3 @@ function draw(v,c1,bc,cw,ch) {
     t++;
     setTimeout(draw,20,v,c1,bc,cw,ch);
     };
-

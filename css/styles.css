@@ -1,45 +1,133 @@
-
-h1{
-   color: #f77e7e;
-   font-size: 100px;
-   font-family: 'Press Start 2P', cursive;
-   text-align: center;
-   background-image: url(../images/socialdistancing.jpg);
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: top;
-   border-color: #f77e7e;
-   border-width: 5px;
-   border-style: dotted;
-   border-radius: 20px;
-   padding-bottom: 85px;
-   margin-top: 20px;
+* {
+  box-sizing: border-box;
 }
 
-h2{
-  color: #303960;
-  font-size: 20px;
-  font-family: 'Press Start 2P', cursive;
+body {
+  background-color: #474747;
   text-align: center;
+  margin: auto;
 }
 
-video {
+.header {
+  padding: 20px;
+  text-align: center;
+  background-image: url(../images/socialdistancing.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  opacity: 0.7;
+}
+
+/* .header::after {
+  content: "";
+  background: url(../images/socialdistancing.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  position: absolute;
+} */
+
+h1 {
+   color: #CC527A;
+   font-size: 130px;
+   font-family: 'Courier New', Courier, monospace;
+   margin: 25px;
+}
+
+h2 {
+  color: white;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+  color: white;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+.warning{
+  /* color: #E8175D; */
+  font-size: 20px;
+  animation-name: flash;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+  0% {color: #E8175D;}
+  20% {color: red;}
+  40% {color: yellow;}
+  60% {color: blue;}
+  80% {color: green;}
+  100% {color: white;}
+}
+
+.typewriter h2{
+
+  overflow: hidden;
+  border-right: .15em solid #E8175D;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .10em;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing{
+  from {width: 0}
+  to {width: 100%}
+}
+
+@keyframes blink-caret{
+  from, to {border-color: transparent}
+  50% {border-color: #E8175D;}
+}
+
+video, canvas {
   vertical-align: top;
   margin: auto;
   width: 33.33%;
+  padding: 15px;
+  float: left;
+}
+
+/* #c1 {
+  width: 33.33%;
+} */
+
+#videos {
+  text-align: center;
+}
+
+#buttonBlock {
+  padding: 20px;
 }
 
 button {
-  padding: 8px;
-  margin: 1px 1px 1px 50px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
-  background-color: #f77e7e;
-  color: black;
-  border-radius: 70px;
-  border-color: white;
+  padding: 10px;
+  margin: 0px 25px 0px 25px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  background-color: #CC527A;
+  border: none;
+  /* border-radius: 70px;
+  border-color: white; */
   color: white;
 }
+
+button:hover {
+  background-color: #E8175D;
+}
+
 
 a {
   text-decoration: none;
@@ -47,7 +135,7 @@ a {
   padding: 8px 16px;
   margin-left: 800px;
   margin-bottom: 20px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 a:hover {
@@ -70,8 +158,8 @@ a:hover {
 }
 
 #timer {
-  background-color: #004d00;
-  height: 50px;
+  background-color: #CC527A;
+  height: 30px;
   width: 90vw;
   margin: 0 4vw;
 }
@@ -87,4 +175,14 @@ a:hover {
   50%  {width: 45vw;}
   75%  {width: 22.5vw;} */
   100% {width: 0vw;}
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #CC527A;
+  opacity: 0.7;
+  text-align: center;
 }
