@@ -1,5 +1,3 @@
-var t = 0;
-var glitch = 0
 
 start.addEventListener('click', function glitch(){
     var v = document.getElementById('showVideo');
@@ -21,7 +19,7 @@ start.addEventListener('click', function glitch(){
 },false);
 
 function draw(v,c1,bc,cw,ch) {
-    var x = Math.random() * 5000;
+    var x = Math.random() * 3000;
     // First, draw it into the backing canvas
     bc.drawImage(v,0,0,cw,ch);
     // Grab the pixel data from the backing canvas
@@ -36,20 +34,27 @@ function draw(v,c1,bc,cw,ch) {
         if(x%30 < 10){
         data[i] = 120 + 3*data[i] - data[i + 2] - data[i + w*3];
         }
-        if(t%40 < 1){
+        if(x%40 < 1){
             data[i] = 5*data[i] - data[i + 13] - data[i + w*3];
         }
-        if(t%30 < 3){
+        if(x%30 < 3){
             data[i] = data[i] - data[i + 4];
         }
         if(x%13 < 1){
-            data[i] = data[i - 4] - .5;
+            data[i] = data[i + 4];
         }
 
     }
     c1.putImageData(idata,0,0);
     // Start over!
-    t++;
+    setBG();
     setTimeout(draw,20,v,c1,bc,cw,ch);
     };
+
+function setBG(){
+    v = document.getElementById('videos');
+    c = document.getElementById('c1').toDataURL();
+    v.style.background = 'url(' + c + ')';
+    //document.body.style.background = 'url('+c+')';
+}
 
