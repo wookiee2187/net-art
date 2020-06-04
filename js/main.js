@@ -7,8 +7,9 @@
 /************* TIMER SECTION *************/
 
 let recordingIndicator = false;
-let questions = ["who r u?", "owo thats neat uh who am i am i human?", "y r u here? wut brought u hr?", "do u like the internet?", "r u hooman? hw do i kno ur not lying?", "tell me smthing noone else knos!", " r u ok w/ me using ur data hehe", "r u good or bad?", "tell me more! >0<", "wuts ur zoooooom name lol", "ok ok u have a shovel the handle breaks and u replace it u use it for a few more yrs its a good ol shovel the scoop breaks u replace it is it still the same shovel?", "r u the same person u were ystrday?", "expln covid to ur past self---- r u better off now than u wer ysterday?"]
+const questions = ["who r u?", "owo thats neat uh who am i am i human?", "y r u here? wut brought u hr?", "do u like the internet?", "r u hooman? hw do i kno ur not lying?", "tell me smthing noone else knos!", " r u ok w/ me using ur data hehe", "r u good or bad?", "tell me more! >0<", "wuts ur zoooooom name lol", "ok ok u have a shovel the handle breaks and u replace it u use it for a few more yrs its a good ol shovel the scoop breaks u replace it is it still the same shovel?", "wut u gonna do after covid??? go see someone?? ;PPP lul", "r u the same person u were ystrday?", "expln covid to ur past self---- r u better off now than u wer ysterday?"];
 
+const popups = ["ad1", "ad2", "ad3", "ad4", "ad5", "ad6", "ad7", "ad8", "ad9", "ad10", "ad11", "ad12", "ad13"];
 
 let i = 0;
 function timer() {
@@ -18,8 +19,10 @@ function timer() {
     const question = document.getElementById("questionsWarningText");
     question.innerHTML = questions[0];
     let currentQ = questions.slice(1, questions.length);
+    let displayPop = popups.slice(0, popups.length);
     let width = 90;
     let id = setInterval (frame, 100);
+    setTimeout(popUp1(), 3000)
     function frame() {
       if (!recordingIndicator || currentQ.length <= 1) {
         clearInterval(id);
@@ -34,6 +37,17 @@ function timer() {
         }
       }
       else if (width <= 0 && recordingIndicator) {
+        //get a popup to show
+        // check current innerHTML to see if its the single ladies trigger lul
+        if (question.innerHTML == "wut u gonna do after covid??? go see someone?? ;PPP lul") {
+          document.getElementById("singlewomen").style.visibility = "visible";
+        }
+        else {
+          let adNum = Math.floor(Math.random() * (displayPop.length));
+          let adId = displayPop[adNum];
+          document.getElementById(adId).style.visibility = "visible";
+          displayPop.splice(adNum, 1);
+        }
         width = 90;
         let qIndex = Math.floor(Math.random() * (currentQ.length));
         question.innerHTML = currentQ[qIndex];
@@ -45,6 +59,21 @@ function timer() {
       }
     }
   }
+}
+
+/************* POPUP SECTION *************/
+
+function popUp1() {
+  alert("Enjoy your conversation! XD");
+}
+
+window.onload = prompt("ENTER YOUR SSN.", "");
+
+function hideAds() {
+  for (let i = 0; i < popups.length; i++) {
+    document.getElementById(popups[i]).style.visibility = "hidden";
+  }
+  document.getElementById("singlewomen").style.visibility = "hidden";
 }
 
 /************* SPEECH SECTION *************/
@@ -130,6 +159,7 @@ recordButton.addEventListener('click', () => {
     timer()
   } else {
     stopRecording()
+    hideAds();
     recordingIndicator = !recordingIndicator
     const question = document.getElementById("questionsWarningText");
     question.innerHTML = "You will be recorded."
