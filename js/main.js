@@ -21,7 +21,7 @@ function timer() {
     let currentQ = questions.slice(1, questions.length);
     let displayPop = popups.slice(0, popups.length);
     let width = 90;
-    let id = setInterval (frame, 10);
+    let id = setInterval (frame, 100);
     setTimeout(popUp1(), 3000)
     function frame() {
       if (!recordingIndicator || currentQ.length <= 1) {
