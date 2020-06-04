@@ -34,11 +34,22 @@ body {
 }
 
 h1 {
-   color: #CC527A;
+   /* https://codepen.io/AllThingsSmitty/pen/VzXrgY*/
+   color: #fff;
+   text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #FF00BB,
+    0 0 80px #FF00BB,
+    0 0 90px #FF00BB,
+    0 0 100px #FF00BB,
+    0 0 150px #FF00BB;
    font-size: 130px;
    font-family: 'Courier New', Courier, monospace;
    margin: 25px;
    position: relative;
+   text-align: center;
 }
 
 h2 {
@@ -50,7 +61,7 @@ h2 {
 
 p {
   color: white;
-  font-size: 30px;
+  font-size: 10px;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
 }
@@ -116,7 +127,7 @@ video, canvas {
 }
 
 button {
-  padding: 10px;
+  padding: 20px;
   margin: 0px 25px 0px 25px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
@@ -185,8 +196,9 @@ a:hover {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 8%;
   background-color: #CC527A;
-  opacity: 0.7;
+  opacity: 0.4;
   text-align: center;
 }
 

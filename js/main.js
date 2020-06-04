@@ -33,7 +33,7 @@ function timer() {
           question.innerHTML = "Interview is complete. Thank you for your time. You are still being recorded."
         }
         else {
-          question.innerHTML = "You will be recorded."
+          question.innerHTML = "You probably won't read this but ... You are consenting to your data being collected and used. You will be recorded and we will define your entire personhood. We'll probably know you better than you know yourself. Don't worry it'll make your experience better. It's for your own good. Now just click that button ... It's easy :)"
         }
       }
       else if (width <= 0 && recordingIndicator) {
@@ -79,7 +79,7 @@ function hideAds() {
 /************* SPEECH SECTION *************/
 
 // fun speech times -> experimenting like we're in hs science fair
-var keyword = ['blue', 'green', 'yellow','pink','black','coral'] // can be added to
+var keyword = ['blue', 'green', 'yellow','pink','black','coral','orange','brown','white','red','silver','gold','beige'] // can be added to
 var grammar = '#JSGF V1.0; grammar keyword; public <keyword> = ' + keyword.join(' | ') + ' ;'
 var count = 0;
 var containsKey = false;
@@ -120,9 +120,10 @@ recognition.onresult = function(event) {
   containsKey = hasKey(keyword, result);
   console.log('Contains a keyword? ' + containsKey);
   if (containsKey){
-    bg.style.backgroundColor = result;
+    document.getElementById("header").style.backgroundColor = result;
+    document.body.style.backgroundColor = result;
   }
-  document.getElementById("heading").textContent = result;
+  document.getElementById("heading").textContent = result + "?";
   console.log( "blur(" + (100 - Math.round(event.results[count-1][0].confidence*100)) + "px)");
   document.getElementById("showVideo").style.filter = "blur(" + (100 - Math.round(event.results[count-1][0].confidence*100)) + "px)";
 }
