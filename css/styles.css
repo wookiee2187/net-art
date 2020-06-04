@@ -161,24 +161,23 @@ a:hover {
   border-radius: 50%;
 }
 
-#timer {
+#time-bar{
   background-color: #CC527A;
   height: 30px;
-  width: 90vw;
+  width: 90%;
   margin: 0 4vw;
 }
 
-.width-change {
-  animation-name: widthChange;
-  animation-duration: 30s;
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
-@keyframes widthChange {
-  0%   {width: 90vw;}
-  /* 25%  {width: 67.5vw;}
-  50%  {width: 45vw;}
-  75%  {width: 22.5vw;} */
-  100% {width: 0vw;}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
 }
 
 .footer {

@@ -1,30 +1,51 @@
 
 // Code Cited: The WebRTC project https://webrtc.github.io/samples/
 // Speech API Code Cited: Speech Color Changer Mozilla SpeechRecognition project https://github.com/mdn/web-speech-api/blob/master/speech-color-changer/script.js
+// Basic visual progress bar: https://www.w3schools.com/howto/howto_js_progressbar.asp
 'use strict'
 
-
 /************* TIMER SECTION *************/
-function timerTime(duration) {
 
-  var minTimer = duration;
+let recordingIndicator = false;
+let questions = ["who r u?", "owo thats neat uh who am i am i human?", "y r u here? wut brought u hr?", "do u like the internet?", "r u hooman? hw do i kno ur not lying?", "tell me smthing noone else knos!", " r u ok w/ me using ur data hehe", "r u good or bad?", "tell me more! >0<", "wuts ur zoooooom name lol", "ok ok u have a shovel the handle breaks and u replace it u use it for a few more yrs its a good ol shovel the scoop breaks u replace it is it still the same shovel?", "r u the same person u were ystrday?", "expln covid to ur past self---- r u better off now than u wer ysterday?"]
 
-  setInterval(function () {
-      var visualTimer = document.getElementById('timer')
-      visualTimer.classList.add("width-change");
 
-      if (--minTimer < 0) {
-          visualTimer.classList.remove("width-change");
-          minTimer = duration
+let i = 0;
+function timer() {
+  if (i == 0) {
+    i = 1;
+    const elem = document.getElementById("time-bar");
+    const question = document.getElementById("questionsWarningText");
+    question.innerHTML = questions[0];
+    let currentQ = questions.slice(1, questions.length);
+    let width = 90;
+    let id = setInterval (frame, 100);
+    function frame() {
+      if (!recordingIndicator || currentQ.length <= 1) {
+        clearInterval(id);
+        i = 0;
+        width = 90;
+        elem.style.width = width + "%";
+        if (currentQ.length <= 1) {
+          question.innerHTML = "Interview is complete. Thank you for your time. You are still being recorded."
+        }
+        else {
+          question.innerHTML = "You will be recorded."
+        }
       }
-
-  }, 1000);
+      else if (width <= 0 && recordingIndicator) {
+        width = 90;
+        let qIndex = Math.floor(Math.random() * (currentQ.length));
+        question.innerHTML = currentQ[qIndex];
+        currentQ.splice(qIndex, 1);
+      }
+      else {
+        width--;
+        elem.style.width = width + "%";
+      }
+    }
+  }
 }
-
-window.onload = function () {
-  var length = 30 * 1;
-  timerTime(length);
-};
 
 /************* SPEECH SECTION *************/
 
@@ -104,8 +125,13 @@ const recordButton = document.querySelector('button#record')
 recordButton.addEventListener('click', () => {
   if (recordButton.textContent === 'Start Recording') {
     startRecording()
+    recordingIndicator = !recordingIndicator
+    timer()
   } else {
     stopRecording()
+    recordingIndicator = !recordingIndicator
+    const question = document.getElementById("questionsWarningText");
+    question.innerHTML = "You will be recorded."
     recordButton.textContent = 'Start Recording'
     playButton.disabled = false
     downloadButton.disabled = false
