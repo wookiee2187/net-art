@@ -10,9 +10,11 @@ start.addEventListener('click', function glitch(){
     console.log("successfully init");
 
     var cw,ch;
-    
-        cw = v.clientWidth;
-        ch = v.clientHeight;
+
+        // cw = v.clientWidth;
+        // ch = v.clientHeight;
+        cw = 1280;
+        ch = 720;
         canvas.width = cw;
         canvas.height = ch;
         back.width = cw;
@@ -52,4 +54,3 @@ function draw(v,c1,bc,cw,ch) {
     t++;
     setTimeout(draw,20,v,c1,bc,cw,ch);
     };
-

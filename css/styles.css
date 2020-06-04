@@ -1,40 +1,77 @@
+* {
+  box-sizing: border-box;
+}
 
-body{
+body {
   background-color: #474747;
   text-align: center;
   margin: auto;
 }
 
-h1{
+.header {
+  padding: 20px;
+  text-align: center;
+  background-image: url(../images/socialdistancing.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  opacity: 0.7;
+}
+
+/* .header::after {
+  content: "";
+  background: url(../images/socialdistancing.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  position: absolute;
+} */
+
+h1 {
    color: #CC527A;
-   font-size: 100px;
+   font-size: 130px;
    font-family: 'Courier New', Courier, monospace;
-   text-align: center;
-   /* background-image: url(../images/socialdistancing.jpg);
-   background-repeat: no-repeat; */
-   background-size: cover;
-   background-position: top;
-   /* border-color: #f77e7e; */
-   /* border-width: 5px; */
-   /* border-style: dotted; */
-   /* border-radius: 20px; */
-   /* padding-bottom: 20px; */
    margin: 25px;
 }
 
-h2{
+h2 {
   color: white;
-  font-size: 25px;
+  font-size: 15px;
   font-family: 'Courier New', Courier, monospace;
 }
 
+p {
+  color: white;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
 .warning{
-  color: #E8175D;
-  font-size: 40px;
+  /* color: #E8175D; */
+  font-size: 20px;
+  animation-name: flash;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+  0% {color: #E8175D;}
+  20% {color: red;}
+  40% {color: yellow;}
+  60% {color: blue;}
+  80% {color: green;}
+  100% {color: white;}
 }
 
 .typewriter h2{
-  
+
   overflow: hidden;
   border-right: .15em solid #E8175D;
   white-space: nowrap;
@@ -55,11 +92,17 @@ h2{
   50% {border-color: #E8175D;}
 }
 
-video {
+video, canvas {
   vertical-align: top;
   margin: auto;
   width: 33.33%;
+  padding: 15px;
+  float: left;
 }
+
+/* #c1 {
+  width: 33.33%;
+} */
 
 #videos {
   text-align: center;
@@ -132,4 +175,14 @@ a:hover {
   50%  {width: 45vw;}
   75%  {width: 22.5vw;} */
   100% {width: 0vw;}
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #CC527A;
+  opacity: 0.7;
+  text-align: center;
 }
