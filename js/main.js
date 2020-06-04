@@ -30,7 +30,7 @@ function timer() {
           question.innerHTML = "Interview is complete. Thank you for your time. You are still being recorded."
         }
         else {
-          question.innerHTML = "You probably won't read this but ... You are consenting to your data being collected and used. You will be recorded and we will define your entire personhood. We'll probably know you better than you know yourself. Don't worry it'll make your experience better. It's for your own good. Now just click that button ... It's easy :)"
+          question.innerHTML = "Nice. We've put that into our records. Keep going."
         }
       }
       else if (width <= 0 && recordingIndicator) {
@@ -267,6 +267,9 @@ function buttonStart() {
     }
     if(download.style.display == "none"){
       download.style.display = "inline";
+    }
+    if(textt.style.display == "none"){
+      textt.style.display = "block";
     }
   }, false)
   
