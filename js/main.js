@@ -64,7 +64,7 @@ function timer() {
 /************* POPUP SECTION *************/
 
 function popUp1() {
-  alert("Enjoying your conversation?");
+  alert("Enjoy your conversation! XD");
 }
 
 window.onload = prompt("ENTER YOUR SSN.", "");
