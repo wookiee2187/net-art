@@ -1,6 +1,9 @@
 /* Glitch JS file for glitching video
 Authors: Catie Medvid, Cherry Ying, Hailey Qu, Neha Lingareddy
 Date updated: June 5th 2020
+
+Code credit: 
+html5 Doctor - http://html5doctor.com/video-canvas-magic/
 */
 
 var t = 0;
@@ -35,7 +38,7 @@ function draw(v, c1, bc, cw, ch) {
   // Loop through the subpixels, convoluting each using an edge-detection matrix.
   for (var i = 0; i < limit; i++) {
     if (i % 4 == 3) continue;
-
+    //pixel data manipulation!
     if (x % 30 < 10) {
       data[i] = 120 + 3 * data[i] - data[i + 2] - data[i + w * 3];
     }
