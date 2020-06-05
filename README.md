@@ -6,7 +6,7 @@ The aim of our website is to help you examine yourself through an interview-styl
 
 Now, sit back and start to contemplate who you are.
 
-To check it out despite current development, go to: https://wookiee2187.github.io/net-art/
+To check it out go to: https://wookiee2187.github.io/net-art/
 
 Recommended browser is chrome.
 _____________________________________________________________________________________________________________
