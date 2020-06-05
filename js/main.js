@@ -325,6 +325,8 @@ document.querySelector('button#start').addEventListener('click', async () => {
   }
   console.log('Using media constraints:', constraints)
   await init(constraints)
+  const question = document.getElementById("questionsWarningText");
+  question.innerHTML = "You will be recorded."
 })
 
 /********INTERACTION UX SECION************/
