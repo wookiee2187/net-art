@@ -114,6 +114,7 @@ p {
   float: left;
   position: absolute;
   z-index: 0;
+  margin-bottom: 110px;
 }
 
 
@@ -121,11 +122,12 @@ p {
   float: left;
   width: 60%;
   height: auto;
-  margin-left: 20vw; 
+  margin-left: 20vw;
   position: absolute;
   vertical-align:top;
   left: 0;
   z-index: 1;
+  margin-bottom: 110px;
 }
 
 #recorded{
@@ -136,6 +138,7 @@ p {
   vertical-align:top;
   left: 0;
   z-index: 2;
+  margin-bottom: 110px;
 }
 
 #videos {
