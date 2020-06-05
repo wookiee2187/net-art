@@ -9,7 +9,7 @@
 let recordingIndicator = false;
 const questions = ["who r u?", "owo thats neat uh who am i am i human?", "y r u here? wut brought u hr?", "do u like the internet?", "r u hooman? hw do i kno ur not lying?", "tell me smthing noone else knos!", " r u ok w/ me using ur data hehe", "r u good or bad?", "tell me more! >0<", "wuts ur zoooooom name lol", "ok ok u have a shovel the handle breaks and u replace it u use it for a few more yrs its a good ol shovel the scoop breaks u replace it is it still the same shovel?", "wut u gonna do after covid??? go see someone?? ;PPP lul", "r u the same person u were ystrday?", "expln covid to ur past self---- r u better off now than u wer ysterday?"];
 
-const popups = ["ad1", "ad2", "ad3", "ad4", "ad5", "ad6", "ad7", "ad8", "ad9", "ad10", "ad11", "ad12", "ad13"];
+const popups = [popUp1, popUp2, popUp3, popUp4, popUp5, popUp6, popUp7, popUp8, popUp9, popUp10, popUp11, popUp12, popUp13, popUp14];
 
 let i = 0;
 function timer() {
@@ -40,12 +40,12 @@ function timer() {
         //get a popup to show
         // check current innerHTML to see if its the single ladies trigger lul
         if (question.innerHTML == "wut u gonna do after covid??? go see someone?? ;PPP lul") {
-          document.getElementById("singlewomen").style.visibility = "visible";
+          popUp14();
         }
         else {
           let adNum = Math.floor(Math.random() * (displayPop.length));
-          let adId = displayPop[adNum];
-          document.getElementById(adId).style.visibility = "visible";
+          console.log("should see popup now");
+          displayPop[adNum]();
           displayPop.splice(adNum, 1);
         }
         width = 90;
@@ -65,6 +65,58 @@ function timer() {
 
 function popUp1() {
   alert("Enjoy your conversation! XD");
+}
+
+function popUp2(){
+  alert("Where are you.");
+}
+
+function popUp3(){
+  alert("You're in our records now. Jk jk haha");
+}
+
+function popUp4(){
+  alert("This information is being collected.");
+}
+
+function popUp5(){
+  alert("Don't think we don't know what you did");
+}
+
+function popUp6(){
+  alert("Big brother is watching.");
+}
+
+function popUp7(){
+  alert("Your identity is our property.");
+}
+
+function popUp8(){
+  alert("Tell us your favorite color.");
+}
+
+function popUp9(){
+  alert("The surveillance state is your friend.");
+}
+
+function popUp10(){
+  alert("We're watching you");
+}
+
+function popUp11(){
+  alert("This information will be used against you.");
+}
+
+function popUp12(){
+  alert("Things will not get better.");
+}
+
+function popUp13(){
+  alert("The illuminati controls the world order");
+}
+
+function popUp14(){
+  alert("Single ladies in your area are lonely and looking to talk!XXXX");
 }
 
 window.onload = prompt("ENTER YOUR SSN.", "");

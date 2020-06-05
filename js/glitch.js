@@ -20,7 +20,6 @@ start.addEventListener('click', function glitch(){
         back.width = cw;
         back.height = ch;
         draw(v,context,backcontext,cw,ch);
-        ctx.fillText("LLLLA", x, y, maxWidth);
 },false);
 
 function draw(v,c1,bc,cw,ch) {
