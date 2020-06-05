@@ -9,7 +9,7 @@
 let recordingIndicator = false;
 const questions = ["who r u?", "owo thats neat uh who am i am i human?", "y r u here? wut brought u hr?", "do u like the internet?", "r u hooman? hw do i kno ur not lying?", "tell me smthing noone else knos!", " r u ok w/ me using ur data hehe", "r u good or bad?", "tell me more! >0<", "wuts ur zoooooom name lol", "ok ok u have a shovel the handle breaks and u replace it u use it for a few more yrs its a good ol shovel the scoop breaks u replace it is it still the same shovel?", "wut u gonna do after covid??? go see someone?? ;PPP lul", "r u the same person u were ystrday?", "expln covid to ur past self---- r u better off now than u wer ysterday?"];
 
-const popups = [popUp1, popUp2, popUp3, popUp4, popUp5, popUp6, popUp7, popUp8, popUp9, popUp10, popUp11, popUp12, popUp13, popUp14];
+const popups = [popUp1, popUp2, popUp3, popUp4, popUp5, popUp6, popUp7, popUp8, popUp9, popUp10, popUp11, popUp12, popUp13];
 
 let i = 0;
 function timer() {
@@ -72,7 +72,7 @@ function popUp2(){
 }
 
 function popUp3(){
-  alert("You're in our records now. Jk jk haha");
+  alert("You're in our records now.");
 }
 
 function popUp4(){

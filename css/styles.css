@@ -53,15 +53,16 @@ h1 {
 }
 
 h2 {
-  color: white;
+  color: brown;
   font-size: 15px;
   font-family: 'Courier New', Courier, monospace;
   position: relative;
+  font-weight: 700;
 }
 
 p {
   color: white;
-  font-size: 10px;
+  font-size: 25px;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
 }
@@ -200,174 +201,5 @@ a:hover {
   background-color: #CC527A;
   opacity: 0.4;
   text-align: center;
-}
-
-/* AD SECTION */
-#ad1 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 140px;
-  top: 750px
-}
-
-#ad2 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 1160px;
-  top: 750px
-}
-#ad3 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 300px;
-  top: 120px
-}
-#ad3 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 800px;
-  top: 68px;
-}
-#ad4 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 860px;
-  top: 20px;
-}
-#ad5 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 1260px;
-  top: 450px;
-}
-#ad6 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 1050px;
-  top: 350px;
-}
-#ad7 {
-  position: absolute;
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 550px;
-  top: 750px;
-}
-#ad8 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 250px;
-  top: 350px;
-}
-#ad9 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 150px;
-  top: 250px;
-}
-#ad10 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 50px;
-  top: 100px;
-}
-#ad11 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 850px;
-  top: 100px;
-}
-#ad12 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 950px;
-  top: 200px;
-}
-#ad13 {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 1050px;
-  top: 400px;
-}
-#singlewomen {
-  position: fixed;
-  visibility: hidden;
-  text-align: center;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: #ddd;
-  left: 30px;
-  top: 10px
 }
 
