@@ -121,13 +121,6 @@ function popUp14(){
 
 window.onload = prompt("ENTER YOUR SSN.", "");
 
-function hideAds() {
-  for (let i = 0; i < popups.length; i++) {
-    document.getElementById(popups[i]).style.visibility = "hidden";
-  }
-  document.getElementById("singlewomen").style.visibility = "hidden";
-}
-
 /************* SPEECH SECTION *************/
 
 // fun speech times -> experimenting like we're in hs science fair
@@ -211,7 +204,6 @@ recordButton.addEventListener('click', () => {
     timer()
   } else {
     stopRecording()
-    hideAds();
     recordingIndicator = !recordingIndicator
     const question = document.getElementById("questionsWarningText");
     question.innerHTML = "You will be recorded."
