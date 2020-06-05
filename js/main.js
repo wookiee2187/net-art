@@ -338,6 +338,8 @@ document.querySelector('button#start').addEventListener('click', async () => {
 /********INTERACTION UX SECION************/
 
 function buttonStart() {
+  var text = document.getElementById("questionsWarningText"); 
+  text.style.display = "none";
   start.style.display = "none";
   if(record.style.display == "none"){
     record.style.display = "inline";
