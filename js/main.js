@@ -13,6 +13,7 @@ Date updated: June 5th 2020
 let recordingIndicator = false;
 let i = 0;
 
+// questions to be displayed during video
 const questions = ["who r u?",
 "owo thats neat uh who am i am i human?",
 "y r u here? wut brought u hr?",
@@ -28,9 +29,11 @@ breaks u replace it is it still the same shovel?",
 "wut u gonna do after covid??? go see someone?? ;PPP lul",
 "r u the same person u were ystrday?",
 "expln covid to ur past self---- r u better off now than u wer ysterday?"];
+// popups that display after questions
 const popups = [popUp1, popUp2, popUp3, popUp4, popUp5, popUp6, popUp7,
   popUp8, popUp9, popUp10, popUp11, popUp12, popUp13];
 
+// controls question rotation, time bar movement, and popup
 function timer() {
   if (i == 0) {
     i = 1;
@@ -41,7 +44,7 @@ function timer() {
     let displayPop = popups.slice(0, popups.length);
     let width = 90;
     let id = setInterval(frame, 100);
-    setTimeout(popUp1(), 3000)
+    setTimeout(popUp1(), 6000)
 
     function frame() {
       if (!recordingIndicator || currentQ.length <= 1) {
@@ -152,7 +155,7 @@ var grammar = '#JSGF V1.0; grammar keyword; public <keyword> = '
 var count = 0;
 var containsKey = false;
 
-
+// set up speech recognition
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
@@ -201,6 +204,7 @@ recognition.onspeechend = function() {
   recognition.stop();
 }
 
+// check if keyword is in recognized speech
 function hasKey(arr, arr2) {
   let i;
   for (i = 0; i < arr.length; i++) {
@@ -223,6 +227,7 @@ const recordButton = document.querySelector('button#record')
 recordButton.addEventListener('click', () => {
   if (recordButton.textContent === 'Start Recording') {
     startRecording()
+    // start timer loop for questions, popups, and visual time bar
     recordingIndicator = !recordingIndicator
     timer()
   } else {
