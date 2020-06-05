@@ -15,23 +15,25 @@ let i = 0;
 
 // questions to be displayed during video
 const questions = ["who r u?",
-"owo thats neat uh who am i am i human?",
-"y r u here? wut brought u hr?",
-"do u like the internet?",
-"r u hooman? hw do i kno ur not lying?",
-"tell me smthing noone else knos!",
-" r u ok w/ me using ur data hehe",
-"r u good or bad?", "tell me more! >0<",
-"wuts ur zoooooom name lol",
-"ok ok u have a shovel the handle breaks \
+  "owo thats neat uh who am i am i human?",
+  "y r u here? wut brought u hr?",
+  "do u like the internet?",
+  "r u hooman? hw do i kno ur not lying?",
+  "tell me smthing noone else knos!",
+  " r u ok w/ me using ur data hehe",
+  "r u good or bad?", "tell me more! >0<",
+  "wuts ur zoooooom name lol",
+  "ok ok u have a shovel the handle breaks \
 and u replace it u use it for a few more yrs its a good ol shovel the scoop \
 breaks u replace it is it still the same shovel?",
-"wut u gonna do after covid??? go see someone?? ;PPP lul",
-"r u the same person u were ystrday?",
-"expln covid to ur past self---- r u better off now than u wer ysterday?"];
+  "wut u gonna do after covid??? go see someone?? ;PPP lul",
+  "r u the same person u were ystrday?",
+  "expln covid to ur past self---- r u better off now than u wer ysterday?"
+];
 // popups that display after questions
 const popups = [popUp1, popUp2, popUp3, popUp4, popUp5, popUp6, popUp7,
-  popUp8, popUp9, popUp10, popUp11, popUp12, popUp13];
+  popUp8, popUp9, popUp10, popUp11, popUp12, popUp13
+];
 
 // controls question rotation, time bar movement, and popup
 function timer() {
@@ -59,8 +61,7 @@ function timer() {
           question.innerHTML = "Nice. We've put that into our records.\
            Keep going."
         }
-      }
-      else if (width <= 0 && recordingIndicator) {
+      } else if (width <= 0 && recordingIndicator) {
         //get a popup to show
         // check current innerHTML to see if its the single ladies trigger lul
         if (question.innerHTML == "wut u gonna do after covid??? \
@@ -76,8 +77,7 @@ function timer() {
         let qIndex = Math.floor(Math.random() * (currentQ.length));
         question.innerHTML = currentQ[qIndex];
         currentQ.splice(qIndex, 1);
-      }
-      else {
+      } else {
         width--;
         elem.style.width = width + "%";
       }
@@ -149,9 +149,10 @@ window.onload = prompt("ENTER YOUR SSN.", "");
 
 // fun speech times -> experimenting like we're in hs science fair
 var keyword = ['blue', 'green', 'yellow', 'pink', 'black', 'coral',
-'orange', 'brown', 'white', 'red', 'silver', 'gold', 'beige'] // can be added to
-var grammar = '#JSGF V1.0; grammar keyword; public <keyword> = '
-+ keyword.join(' | ') + ' ;'
+  'orange', 'brown', 'white', 'red', 'silver', 'gold', 'beige'
+] // can be added to
+var grammar = '#JSGF V1.0; grammar keyword; public <keyword> = ' +
+  keyword.join(' | ') + ' ;'
 var count = 0;
 var containsKey = false;
 
@@ -180,11 +181,6 @@ recognition.onresult = function(event) {
   console.log('Confidence: ' + event.results[count][0].confidence);
   count++;
   // check to see if a keyword is in the phrase
-  /* WHOEVER MAKES THE SPEECH BASED CHANGES: the following few lines set variable
-   * containsKey to true if a keyword is in the detected speech.
-   * You can use as is or return the keyword or what not depending on how we
-   * eventually decide to handle this.
-   */
   containsKey = false;
   result.split(' ', '.');
   containsKey = hasKey(keyword, result);
@@ -195,9 +191,9 @@ recognition.onresult = function(event) {
   }
   document.getElementById("heading").textContent = result + "?";
   console.log("blur(" +
-  (100 - Math.round(event.results[count - 1][0].confidence * 100)) + "px)");
+    (100 - Math.round(event.results[count - 1][0].confidence * 100)) + "px)");
   document.getElementById("showVideo").style.filter = "blur(" +
-  (100 - Math.round(event.results[count - 1][0].confidence * 100)) + "px)";
+    (100 - Math.round(event.results[count - 1][0].confidence * 100)) + "px)";
 }
 
 recognition.onspeechend = function() {
@@ -308,7 +304,7 @@ function startRecording() {
   } catch (e) {
     console.error('Exception while creating MediaRecorder:', e)
     errorMsgElement.innerHTML =
-    `Exception while creating MediaRecorder: ${JSON.stringify(e)}`
+      `Exception while creating MediaRecorder: ${JSON.stringify(e)}`
     return
   }
 
@@ -360,7 +356,7 @@ function filter() {
 // video and audio
 document.querySelector('button#start').addEventListener('click', async () => {
   const hasEchoCancellation =
-  document.querySelector('#echoCancellation').checked
+    document.querySelector('#echoCancellation').checked
   const constraints = {
     audio: {
       echoCancellation: {
