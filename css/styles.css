@@ -1,3 +1,7 @@
+/* CSS file for index.html
+Authors: Catie Medvid, Cherry Ying, Hailey Qu, Neha Lingareddy
+Date updated: June 5th 2020
+*/
 * {
   box-sizing: border-box;
 }
@@ -11,7 +15,6 @@ body {
 .header {
   padding: 20px;
   text-align: center;
-  /* background-image: url(../images/socialdistancing.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -34,9 +37,9 @@ body {
 }
 
 h1 {
-   /* https://codepen.io/AllThingsSmitty/pen/VzXrgY*/
-   color: #fff;
-   text-shadow:
+  /* source - https://codepen.io/AllThingsSmitty/pen/VzXrgY*/
+  color: #fff;
+  text-shadow:
     0 0 5px #fff,
     0 0 10px #fff,
     0 0 20px #fff,
@@ -45,11 +48,11 @@ h1 {
     0 0 90px #FF00BB,
     0 0 100px #FF00BB,
     0 0 150px #FF00BB;
-   font-size: 130px;
-   font-family: 'Courier New', Courier, monospace;
-   margin: 25px;
-   position: relative;
-   text-align: center;
+  font-size: 130px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 25px;
+  position: relative;
+  text-align: center;
 }
 
 h2 {
@@ -67,8 +70,7 @@ p {
   font-weight: 700;
 }
 
-.warning{
-  /* color: #E8175D; */
+.warning {
   font-size: 35px;
   animation-name: flash;
   animation-duration: 0.5s;
@@ -76,16 +78,32 @@ p {
 }
 
 @keyframes flash {
-  0% {color: #E8175D;}
-  20% {color: red;}
-  40% {color: yellow;}
-  60% {color: blue;}
-  80% {color: green;}
-  100% {color: white;}
+  0% {
+    color: #E8175D;
+  }
+
+  20% {
+    color: red;
+  }
+
+  40% {
+    color: yellow;
+  }
+
+  60% {
+    color: blue;
+  }
+
+  80% {
+    color: green;
+  }
+
+  100% {
+    color: white;
+  }
 }
 
-.typewriter h2{
-
+.typewriter h2 {
   overflow: hidden;
   border-right: .15em solid #E8175D;
   white-space: nowrap;
@@ -96,17 +114,27 @@ p {
     blink-caret .75s step-end infinite;
 }
 
-@keyframes typing{
-  from {width: 0}
-  to {width: 100%}
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
-@keyframes blink-caret{
-  from, to {border-color: transparent}
-  50% {border-color: #E8175D;}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #E8175D;
+  }
 }
 
-#showVideo{
+#showVideo {
   vertical-align: top;
   margin: auto;
   width: 50%;
@@ -117,25 +145,24 @@ p {
   margin-bottom: 110px;
 }
 
-
 #c1 {
   float: left;
   width: 60%;
   height: auto;
   margin-left: 20vw;
   position: absolute;
-  vertical-align:top;
+  vertical-align: top;
   left: 0;
   z-index: 1;
   margin-bottom: 110px;
 }
 
-#recorded{
+#recorded {
   margin: 0, 4vw;
   width: 50%;
   height: 50%;
   position: relative;
-  vertical-align:top;
+  vertical-align: top;
   left: 0;
   z-index: 2;
   margin-bottom: 110px;
@@ -149,9 +176,11 @@ p {
 #buttonBlock {
   padding: 20px;
 }
-#start{
+
+#start {
   font-size: 20px;
 }
+
 button {
   padding: 20px;
   margin: 0px 25px 0px 25px;
@@ -159,8 +188,6 @@ button {
   font-size: 14px;
   background-color: #CC527A;
   border: none;
-  /* border-radius: 70px;
-  border-color: white; */
   color: white;
   position: relative;
 }
@@ -168,8 +195,6 @@ button {
 button:hover {
   background-color: #E8175D;
 }
-
-
 
 a {
   text-decoration: none;
@@ -199,23 +224,11 @@ a:hover {
   border-radius: 50%;
 }
 
-#time-bar{
+#time-bar {
   background-color: #CC527A;
   height: 30px;
   width: 90%;
   margin: 0 4vw;
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
 }
 
 .footer {

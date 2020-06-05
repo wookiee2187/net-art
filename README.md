@@ -11,5 +11,9 @@ To check it out go to: https://wookiee2187.github.io/net-art/
 Recommended browser is chrome.
 _____________________________________________________________________________________________________________
 
-Note - After clicking on Accept you will be taken to to the interview-style Q&A, once you click on Start Recording. You must click on Stop Recording whenever you are finished with the interview, and you can watch yourself answer the questions. We hope in this moment, you see yourself as others see you now, and you can reflect on how human you are in this setting. 
+Note - After clicking on Accept you will be taken to to the interview-style Q&A, once you click on Start Recording. You must click on Stop Recording whenever you are finished with the interview, and you can watch yourself answer the questions. We hope in this moment, you see yourself as others see you now, and you can reflect on how human you are in this setting.
 
+Important - using the speech recognition api in this experience requires you to
+say something before clicking on start recording and accepting microphone and
+camera use twice. You should see your input processed as your output will be
+displayed on the footer in flashing letters. 
