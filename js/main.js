@@ -346,9 +346,6 @@ function buttonStart() {
     if(download.style.display == "none"){
       download.style.display = "inline";
     }
-    if(textt.style.display == "none"){
-      textt.style.display = "block";
-    }
   }, false)
   
 }
