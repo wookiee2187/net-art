@@ -2,7 +2,7 @@
 Authors: Catie Medvid, Cherry Ying, Hailey Qu, Neha Lingareddy
 Date updated: June 5th 2020
 
-Code credit: 
+Code credit:
 html5 Doctor - http://html5doctor.com/video-canvas-magic/
 */
 
@@ -25,7 +25,6 @@ start.addEventListener('click', function glitch() {
   draw(v, context, backcontext, cw, ch);
 }, false);
 
-// SOURCE - Hailey
 function draw(v, c1, bc, cw, ch) {
   var x = Math.random() * 5000;
   // First, draw it into the backing canvas
