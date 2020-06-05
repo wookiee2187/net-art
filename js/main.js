@@ -3,7 +3,7 @@ Authors: Catie Medvid, Cherry Ying, Hailey Qu, Neha Lingareddy
 Date updated: June 5th 2020
 */
 
-// Code Cited: The WebRTC project https://webrtc.github.io/samples/
+// WebRTC Code Cited: The WebRTC project https://webrtc.github.io/samples/
 // Speech API Code Cited: Speech Color Changer Mozilla SpeechRecognition project https://github.com/mdn/web-speech-api/blob/master/speech-color-changer/script.js
 // Basic visual progress bar: https://www.w3schools.com/howto/howto_js_progressbar.asp
 'use strict'
@@ -216,6 +216,7 @@ function hasKey(arr, arr2) {
 let mediaRecorder
 let recordedBlobs
 
+// buttons functionality: record, play, download
 const recordedVideo = document.querySelector('video#recorded')
 const recordButton = document.querySelector('button#record')
 
@@ -272,6 +273,7 @@ function handleDataAvailable(event) {
   }
 }
 
+// start and stop recording
 function startRecording() {
   recordedBlobs = []
   let options = {
@@ -340,6 +342,7 @@ async function init(constraints) {
   }
 }
 
+// create randomly generated filter
 function filter() {
   const filter_list = ["none", "blur(3px)", "brightness(60%)", "contrast(30%)",
     "grayscale(1)", "hue-rotate(270deg)", "invert(100%)", "opacity(50%)",
@@ -349,6 +352,7 @@ function filter() {
   document.getElementById("showVideo").style.filter = filter_list[filteridx]
 }
 
+// video and audio
 document.querySelector('button#start').addEventListener('click', async () => {
   const hasEchoCancellation =
   document.querySelector('#echoCancellation').checked
